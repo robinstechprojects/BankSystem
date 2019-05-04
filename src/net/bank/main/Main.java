@@ -2,11 +2,13 @@ package net.bank.main;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import net.bank.data.Data;
+
 public class Main extends JavaPlugin {
 	
 	public void onEnable() {
-		System.out.println("Test!");
-		//Dies ist ein Test
+		Data.log("§cBank System wurde gestartet!");
+		
 	}
 
 }
