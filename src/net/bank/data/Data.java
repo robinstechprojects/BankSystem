@@ -10,5 +10,7 @@ public class Data {
 	public static void log(String msg) {
 		Bukkit.getConsoleSender().sendMessage(prefix + msg);
 	}
+	
+	
 
 }
