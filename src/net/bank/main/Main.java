@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import net.bank.commands.CMD_Eco;
 import net.bank.commands.CMD_GiveMoney;
 import net.bank.data.Data;
+import net.bank.listener.InteractListener;
 import net.bank.listener.JoinListener;
 
 public class Main extends JavaPlugin {
@@ -20,11 +21,12 @@ public class Main extends JavaPlugin {
 		
 		PluginManager pm = Bukkit.getPluginManager();
 		pm.registerEvents(new JoinListener(), this);
+		pm.registerEvents(new InteractListener(), this);
 		
 		this.getCommand("eco").setExecutor(new CMD_Eco());
 		this.getCommand("givemoney").setExecutor(new CMD_GiveMoney());
 		
-		
+
 	}
 	
 	public static Main getMain() {

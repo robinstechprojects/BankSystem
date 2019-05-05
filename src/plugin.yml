@@ -2,6 +2,7 @@ name: Bank
 version: 0.1
 main: net.bank.main.Main
 author: GeroRobin
+api-version: 1.14
 commands:
    eco:
       name: eco
