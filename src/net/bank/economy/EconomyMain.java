@@ -19,7 +19,9 @@ public class EconomyMain {
 	
 	public void giveMoney(Player p, int amount) {
 		
-		config.set("bank.user." + p.getDisplayName() + ".money", amount);
+		int newvalue = config.getInt("bank.user." + p.getDisplayName() + ".money") + amount;
+		
+		config.set("bank.user." + p.getDisplayName() + ".money", newvalue);
 		Main.getMain().saveConfig();
 		
 	}

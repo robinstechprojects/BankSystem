@@ -6,3 +6,6 @@ commands:
    eco:
       name: eco
       description: Zeigt deinen aktuellen Kontostand.
+   givemoney:
+      name: givemoney
+      description: Gibt dir Geld.

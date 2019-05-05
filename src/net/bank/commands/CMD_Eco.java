@@ -22,7 +22,7 @@ public class CMD_Eco implements CommandExecutor {
 				
 				FileConfiguration config = Main.getMain().getConfig();
 				
-				p.sendMessage(Data.prefix + "Dein Guthaben beträgt §c" + config.getInt("bank.user" + p.getDisplayName() + ".money") + "$§r!");
+				p.sendMessage(Data.prefix + "Dein Guthaben beträgt §c" + config.getInt("bank.user." + p.getDisplayName() + ".money") + "$§r!");
 				
 			}
 			
