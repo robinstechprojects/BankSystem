@@ -10,3 +10,6 @@ commands:
    givemoney:
       name: givemoney
       description: Gibt dir Geld.
+   pay:
+      name: pay
+      description: Zahlt Geld an den angegeben Spieler.
