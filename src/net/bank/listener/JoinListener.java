@@ -17,7 +17,8 @@ public class JoinListener implements Listener {
 		
 		e.setJoinMessage(Data.prefix + "§7Der Spieler §c" + e.getPlayer().getDisplayName() + "§7 ist dem Server beigetreten.");
 		
-		config.addDefault("players." + e.getPlayer().getDisplayName() + ".hasKonto", false);
+		config.addDefault("players." + e.getPlayer().getDisplayName() + ".hasKonto", true);
+		config.addDefault("bank.user." + e.getPlayer().getDisplayName() + ".money", 0);
 		config.options().copyDefaults(true);
 		Main.getMain().saveConfig();
 		

@@ -1,0 +1,8 @@
+name: Bank
+version: 0.1
+main: net.bank.main.Main
+author: GeroRobin
+commands:
+   eco:
+      name: eco
+      description: Zeigt deinen aktuellen Kontostand.
