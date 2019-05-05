@@ -8,6 +8,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import net.bank.data.Data;
 import net.bank.main.Main;
 
 
@@ -17,18 +18,18 @@ public class EconomyInventory {
 	
 	public void setupKonto(Player p) {
 		
-		config.set("bank.user." + p.getDisplayName() + ".money", 0);
+		config.set("bank.user." + p.getDisplayName() + ".money", 0d);
 		Main.getMain().saveConfig();
 		
 	}
 	
 	public void setupGastInventory(Player p) {
 		
-		Inventory inv = Bukkit.createInventory(null, 1*9, "�cBankautomat");
+		Inventory inv = Bukkit.createInventory(null, 1*9, "§cBankautomat");
 		
 		ItemStack createKontoIS = new ItemStack(Material.APPLE);
 		ItemMeta createKontoMT = createKontoIS.getItemMeta();
-		createKontoMT.setDisplayName("�b�lKONTO ERSTELLEN");
+		createKontoMT.setDisplayName("§b§lKONTO ERSTELLEN");
 		createKontoIS.setItemMeta(createKontoMT);
 		
 		inv.setItem(4, createKontoIS);
@@ -39,16 +40,26 @@ public class EconomyInventory {
 	
 	public void setupUserInventory(Player p) {
 		
-		Inventory inv = Bukkit.createInventory(null, 1*9, "�cBankautomat");
+		Inventory inv = Bukkit.createInventory(null, 1*9, "§cBankautomat");
 		
 		ItemStack getBalanceIS = new ItemStack(Material.BOOK);
 		ItemMeta getBalanceMT = getBalanceIS.getItemMeta();
-		getBalanceMT.setDisplayName("�b�lKONTOAUSZUG");
+		getBalanceMT.setDisplayName("§b§lKONTOAUSZUG");
 		getBalanceIS.setItemMeta(getBalanceMT);
 		
 		inv.setItem(4, getBalanceIS);
 		
+		p.openInventory(inv);
 		
+		
+	}
+	
+	public void sendKontoauszug(Player p) {
+		int konto = config.getInt("bank.user." + p.getDisplayName() + ".money");
+		
+		p.sendMessage(Data.prefix + "╔═══╗");
+		p.sendMessage(Data.prefix + "  " + konto + "$");
+		p.sendMessage(Data.prefix + "╚═══╝");
 	}
 
 }

@@ -30,7 +30,13 @@ public class InventoryListener implements Listener {
 					economyInventory.setupKonto(p);
 					p.sendMessage(Data.prefix + "Herzlichen Glückwunsch! Du hast ein Konto bei der §cCore§r-§lX§r Bank erstellt!");
 					config.set("players." + p.getDisplayName() + ".hasKonto", true);
+					Main.getMain().saveConfig();
 					p.closeInventory();
+				} else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§b§lKONTOAUSZUG")) {
+					
+					economyInventory.sendKontoauszug(p);
+					p.closeInventory();
+					
 				}
 				
 			}

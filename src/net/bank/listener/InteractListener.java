@@ -25,7 +25,7 @@ public class InteractListener implements Listener {
 			if(e.getClickedBlock().getType() == Material.BLUE_WOOL) {
 				
 				if(config.getBoolean("players." + p.getDisplayName() + ".hasKonto")) {
-					
+					economyInventory.setupUserInventory(p);
 				} else {
 					economyInventory.setupGastInventory(p);
 				}

@@ -1,6 +1,7 @@
 package net.bank.main;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,6 +16,7 @@ public class Main extends JavaPlugin {
 	
 	private static Main plugin;
 	
+	@SuppressWarnings("deprecation")
 	public void onEnable() {
 		plugin = this;
 		
@@ -27,6 +29,36 @@ public class Main extends JavaPlugin {
 		
 		this.getCommand("eco").setExecutor(new CMD_Eco());
 		this.getCommand("givemoney").setExecutor(new CMD_GiveMoney());
+		
+		this.getConfig().addDefault("settings.bank.zinsen", 1.01);
+		this.getConfig().addDefault("settings.bank.zeitzinsen", 60);
+		this.getConfig().options().copyDefaults(true);
+		Main.getMain().saveConfig();
+		
+		Bukkit.getScheduler().scheduleAsyncRepeatingTask(getMain(), new Runnable() {
+			
+			@Override
+			public void run() {
+				for(Player p : Bukkit.getOnlinePlayers()) {
+					
+					if(getConfig().getDouble("bank.user." + p.getDisplayName() + ".money") == 0) {
+						
+					} else {
+						double newvalue = getConfig().getDouble("bank.user." + p.getDisplayName() + ".money")*1.01;
+						double gerundet = Math.round(newvalue * 10) / 10;
+						
+						getConfig().set("bank.user." + p.getDisplayName() + ".money", gerundet);
+						Main.getMain().saveConfig();
+						
+						p.sendMessage(Data.prefix + "Du hast Zinsen erhalten! Glückwunsch!");
+					}
+					
+				}
+				
+			}
+		}, 20*this.getConfig().getLong("settings.bank.zeitzinsen"), 20* this.getConfig().getLong("settings.bank.zeitzinsen"));
+		
+		
 		
 
 	}
