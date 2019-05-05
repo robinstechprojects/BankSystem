@@ -39,6 +39,16 @@ public class EconomyInventory {
 	
 	public void setupUserInventory(Player p) {
 		
+		Inventory inv = Bukkit.createInventory(null, 1*9, "§cBankautomat");
+		
+		ItemStack getBalanceIS = new ItemStack(Material.BOOK);
+		ItemMeta getBalanceMT = getBalanceIS.getItemMeta();
+		getBalanceMT.setDisplayName("§b§lKONTOAUSZUG");
+		getBalanceIS.setItemMeta(getBalanceMT);
+		
+		inv.setItem(4, getBalanceIS);
+		
+		
 	}
 
 }
