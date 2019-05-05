@@ -26,7 +26,16 @@ public class EconomyMain {
 		
 	}
 	
-	public void payMoney(Player from, Player to, int amount) {
+	public void removeMoney(Player p, int amount) {
+
+		int newvalue = config.getInt("bank.user." + p.getDisplayName() + ".money") - amount;
+		
+		config.set("bank.user." + p.getDisplayName() + ".money", newvalue);
+		Main.getMain().saveConfig();
+		
+	}
+	
+	public void payMoney(Player from, Player to, double amount) {
 		
 		if(config.getDouble("bank.user." + from.getDisplayName() + ".money") > amount) {
 			

@@ -13,3 +13,12 @@ commands:
    pay:
       name: pay
       description: Zahlt Geld an den angegeben Spieler.
+   createinvestment:
+      name: createinvestment
+      description: Erstellt ein Investment.
+   investmentlist:
+      name: investmentlist
+      description: Listet dir alle Investments auf!
+   invest: 
+      name: invest
+      description: Laesst dich in andere Spielerkredite investieren!

@@ -5,10 +5,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import net.bank.commands.CMD_CreateInvest;
 import net.bank.commands.CMD_Eco;
 import net.bank.commands.CMD_GiveMoney;
+import net.bank.commands.CMD_Invest;
+import net.bank.commands.CMD_Investmentlist;
 import net.bank.commands.CMD_Pay;
 import net.bank.data.Data;
+import net.bank.investment.InvestmentMain;
 import net.bank.listener.InteractListener;
 import net.bank.listener.InventoryListener;
 import net.bank.listener.JoinListener;
@@ -31,11 +35,16 @@ public class Main extends JavaPlugin {
 		this.getCommand("eco").setExecutor(new CMD_Eco());
 		this.getCommand("givemoney").setExecutor(new CMD_GiveMoney());
 		this.getCommand("pay").setExecutor(new CMD_Pay());
+		this.getCommand("createinvestment").setExecutor(new CMD_CreateInvest());
+		this.getCommand("investmentlist").setExecutor(new CMD_Investmentlist());
+		this.getCommand("invest").setExecutor(new CMD_Invest());
 		
 		this.getConfig().addDefault("settings.bank.zinsen", 1.01);
 		this.getConfig().addDefault("settings.bank.zeitzinsen", 60);
 		this.getConfig().options().copyDefaults(true);
 		Main.getMain().saveConfig();
+		
+		InvestmentMain.payInvestors();
 		
 		Bukkit.getScheduler().scheduleAsyncRepeatingTask(getMain(), new Runnable() {
 			

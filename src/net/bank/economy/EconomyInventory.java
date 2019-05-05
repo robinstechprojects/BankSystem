@@ -47,7 +47,13 @@ public class EconomyInventory {
 		getBalanceMT.setDisplayName("§b§lKONTOAUSZUG");
 		getBalanceIS.setItemMeta(getBalanceMT);
 		
+		ItemStack investIS = new ItemStack(Material.DIAMOND);
+		ItemMeta investMT = investIS.getItemMeta();
+		investMT.setDisplayName("§a§lINVESTIEREN");
+		investIS.setItemMeta(investMT);
+		
 		inv.setItem(4, getBalanceIS);
+		inv.setItem(6, investIS);
 		
 		p.openInventory(inv);
 		
