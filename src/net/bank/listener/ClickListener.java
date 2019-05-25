@@ -1,4 +1,5 @@
-package net.bank.listener;
+package net.bank.listener;//////////////////
+*
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -18,7 +19,7 @@ public class ClickListener implements Listener {
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {//War Klick ein Rechtsklick?
             Player player = (Player) event.getPlayer();//event-Spieler in Variable speichern
             Material clicked = event.getClickedBlock().getType();//geklicktes Material in Variable speichern
-            if(clicked == Material.BLUE_WOOL) {// Wenn geklickter Block blaue Wolle ist
+            if(clicked == Material.BLUE_WOOL) {// Wenn geklickter Block blaue Wolle is
             	
             }
           
